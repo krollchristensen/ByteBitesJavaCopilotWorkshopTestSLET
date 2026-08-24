@@ -1,15 +1,18 @@
 package dk.zealand;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class Main {
 
-    private static final String[] DISHES = {
-            "Festivalburger",
-            "Sprøde fritter",
-            "Vegansk bowl"
-    };
+    private static final List<Food> DISHES = new ArrayList<>();
+
+    static {
+        DISHES.add(new Food("Festivalburger", 59));
+        DISHES.add(new Food("Sprøde fritter", 35));
+        DISHES.add(new Food("Vegansk bowl", 65));
+    }
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -47,8 +50,8 @@ public class Main {
     private static void showDishes() {
         System.out.println("Retter:");
 
-        for (int i = 0; i < DISHES.length; i++) {
-            System.out.printf("%d. %s%n", i + 1, DISHES[i]);
+        for (int i = 0; i < DISHES.size(); i++) {
+            System.out.printf("%d. %s%n", i + 1, DISHES.get(i));
         }
     }
 }
